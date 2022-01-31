@@ -37,7 +37,6 @@ void AllocateMemory(){
     for(int k=0;k<numberOfVertex;k++){
         verticesMatrix[k]=new int[2];
     }
-    //numberOfVertex=numberOfVertex*2;
     transformMatrix=new int*[numberOfVertexMulti];
     for(int j=0;j<numberOfVertexMulti;j++){
         transformMatrix[j]=new int[numberOfVertexMulti];
@@ -50,22 +49,18 @@ void ResetMatrix(){
             adjacencyMatrix[i][j] = 0;
         }
     }
-    //cout<<"adj reset done"<<endl;
 
     for(int i=0;i<numberOfVertex;i++){
         for(int j=0;j<2;j++){
             verticesMatrix[i][j]=0;
         }
     }
-    //cout<<" vert reset done"<<endl;
 
     for(int i=0;i<numberOfVertexMulti;i++){
         for(int j=0;j<numberOfVertexMulti;j++){
             transformMatrix[i][j]=0;
         }
     }
-
-    //cout<<"trans reset done"<<endl;
 }
 
 void CheckMatrixADJ(int **matrix){
@@ -178,24 +173,13 @@ void TransformMatrix(){
         for(int j=0;j<numberOfVertex;j++){
             if(adjacencyMatrix[j][i]==1){
                 verticesMatrix[j][1]=verticesMatrix[i][0];
-                //CheckMatrixVERT(verticesMatrix);
-                //cout<<endl;
             }
 
             if(adjacencyMatrix[i][j]==1){
                 verticesMatrix[j][0]=verticesMatrix[i][1];
-                //CheckMatrixVERT(verticesMatrix);
-                //cout<<endl;
             }
         }
-        //cout<<endl;
     }
-
-    //cout<<"Tutaj2"<<endl;
-
-    /*for(int k=0;k<numberOfVertex;k++){
-        transformMatrix[verticesMatrix[k][0]][verticesMatrix[k][1]]=1;
-    }*/
 }
 
 int id=0;
